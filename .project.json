@@ -94,10 +94,5 @@
     "services": {
       "js": "jsValidator"
     }
-  },
-  "hcpdeploy": {
-    "account": "ab6cbd989",
-    "name": "comxftdemooutlook",
-    "lastVersionWeTriedToDeploy": "1.0.2"
   }
 }
