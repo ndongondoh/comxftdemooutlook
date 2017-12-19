@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>office Integration</title>
+
+		<!-- https://sapui5.hana.ondemand.com/resources/sap-ui-core.js -->
+		<script id="sap-ui-bootstrap"
+			src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+			data-sap-ui-libs="sap.m"
+			data-sap-ui-theme="sap_bluecrystal"
+			data-sap-ui-preload=""
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-resourceroots='{"com.xft.demo.outlook": "./"}'>
+		</script>
+
+		<script>
+			$.sap.require('sap.ui.thirdparty.jqueryui.jquery-ui-core');
+			$.sap.require('sap.ui.thirdparty.jqueryui.jquery-ui-widget');
+			$.sap.require('sap.ui.thirdparty.jqueryui.jquery-ui-mouse');
+			$.sap.require('sap.ui.thirdparty.jqueryui.jquery-ui-sortable');
+			$.sap.require('sap.ui.thirdparty.jqueryui.jquery-ui-droppable');
+			$.sap.require('sap.ui.thirdparty.jqueryui.jquery-ui-draggable');
+			
+			sap.ui.getCore().attachInit(function() {
+				new sap.m.Shell({
+					title: "{i18n>appTitle}",
+					appWidthLimited: false,
+					showLogout : false,
+					app: new sap.ui.core.ComponentContainer({
+						height : "100%",
+						name : "com.xft.demo.outlook"
+					})
+				}).placeAt("content");
+			});
+		</script>
+	</head>
+
+	<body class="sapUiBody" role="application" id="content">
+	</body>
+
+</html>

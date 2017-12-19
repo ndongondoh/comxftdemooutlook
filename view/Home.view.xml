@@ -1,0 +1,49 @@
+<mvc:View controllerName="com.xft.demo.outlook.controller.Home" 
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap"
+	xmlns:my="com.xft.demo.outlook.control"
+	xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Page id="HomePage" showNavButton="false" class="homePage">
+		<headerContent>
+			<Button text="{i18n>label.emails}" type="Accept" press="onInboxBtnPress"/>
+			<Button text="{i18n>label.calendar}" type="Accept" press="onCalendarBtnPress"/>
+		</headerContent>
+		<content>
+			<ObjectHeader title="{office>displayName}"
+				class="xftProfilObjectPageHeader"
+				binding="{office>/me}">
+				<attributes>
+					<ObjectAttribute title="{i18n>label.mail}" text="{office>mail}" />
+					<ObjectAttribute title="{i18n>label.phone}" text="{office>mobilePhone}" />
+				</attributes>
+			</ObjectHeader>
+						<!-- my:UploadCollection id="Meins"
+							instantUpload="false" showSeparators="Inner" multiple="true" maximumFileSize="10" mode="None"
+							maximumFilenameLength="255" sameFilenameAllowed="true" terminationEnabled="false" uploadButtonInvisible="false"
+							fileRenamed="onUploadCollectionFileRenamed"
+							change="onUploadCollectionChange"
+							beforeUploadStarts="onUploadCollectionBeforeUploadStarts"
+							uploadComplete="onUploadCollectionUploadComplete">
+						</my:UploadCollection-->
+						<my:UploadCollection id="UploadCollection" class="uploadCollection"
+							instantUpload="false" showSeparators="Inner" multiple="true" maximumFileSize="10" mode="None"
+							maximumFilenameLength="255" sameFilenameAllowed="true" terminationEnabled="false" uploadButtonInvisible="false"
+							fileRenamed="onUploadCollectionFileRenamed"
+							change="onUploadCollectionChange"
+							noDataText="{i18n>page.home.uploadConllection.nodataDescr}"
+							beforeUploadStarts="onUploadCollectionBeforeUploadStarts"
+							uploadComplete="onUploadCollectionUploadComplete">
+						</my:UploadCollection>
+						<core:Fragment fragmentName="com.xft.demo.outlook.fragments.EmailListItem" type="XML" />
+			<!--l:FixFlex fixFirst="false" vertical="false"  width="100%" id="HomeMainFixFlex"
+					class="homeMainFixFlex"
+					fixContentSize="25rem" 
+					minFlexSize="300">
+				<l:fixContent>
+				</l:fixContent>
+				<l:flexContent>
+				</l:flexContent>
+			</l:FixFlex-->
+		</content>
+	</Page>
+</mvc:View>

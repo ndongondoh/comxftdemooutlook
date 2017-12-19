@@ -1,0 +1,86 @@
+.xftDragable {
+	z-index: 999;
+}
+
+.homePage .uploadCollection {
+	width: calc(100% - 30rem);
+	clear: left;
+    display: inline-flex;
+    margin-right: 2rem;
+}
+.homePage .emailList {
+	width: 25rem;
+	clear: right;
+    display: inline-flex;
+    height: 100%;
+    overflow: visible;
+}
+.homePage .emailList ul {
+	width: 25rem;
+}
+
+.homePage .emailList li.ui-draggable {
+	width: 25rem;
+}
+
+.sapMListBGSolid .sapMLIB.xftMailItem {
+    padding: 0.8rem 0.3rem 0.5rem 0.3rem;
+}
+.xftMailItem .sapMLIBContent {
+	/*margin: 0.8rem 0.3rem 0.5rem 0.3rem;*/
+}
+.xftMailItem .xftMailItemHeader .sapMFlexItem:first-child {
+	margin-right: 0.3rem;
+	width: calc(100% - 5.2rem);
+}
+.xftMailItem .xftMailItemHeader .sapMFlexItem:last-child {
+	/*margin-right: 0.2rem;*/
+	width: 5.5rem;
+	text-align: right;
+}
+.xftMailItem .xftMailItemHeader .xftMailItemFromNameLbl {
+    font-size: 1.1rem;
+}
+.xftMailItem .xftMailItemSubjectLbl {
+	color: #505050;
+}
+
+.xftEmaiObjectPageHeader .sapUxAPObjectPageHeaderContentItem {
+	width: 100%;
+}
+
+/*.sapMTextArea{
+	background-color: #F3FAB6;
+}
+.sapMMsgStrip{
+	background-color: #FDF3E7;
+}
+.profilePic{
+	border-radius: 23px;
+    margin: 7px 0 7px 7px;
+}
+.profileName{
+	margin: 10px 10px 0px 10px;
+	font-size: 20px;
+}
+.designation{
+	margin: 0px 0px 0px 10px;
+}
+.subjectLabel{
+	color: #911945;
+	margin: 0px 10px 0px 0px;
+	font-size: 17px;
+}
+.shortText{
+	margin: 0px 10px 0px 0px;
+	font-size: 14px;
+}
+.sapMListBGSolid .sapMLIB:not(.sapMLIBActive):not(.sapMLIBSelected):not(:hover) {
+    background: #EFDFE5;
+}
+.sapMIBar.sapMHeader-CTX{
+	background-color:#911945;
+}
+.sapMIBar-CTX .sapMTitle{
+	color: #FFF;
+}*/

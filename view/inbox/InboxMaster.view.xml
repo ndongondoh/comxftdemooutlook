@@ -1,0 +1,36 @@
+<mvc:View controllerName="com.xft.demo.outlook.controller.inbox.InboxMaster" 
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core"
+	xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Page id="InboxMasterPage" showNavButton="true"
+		navButtonPress="onNavBack" class="sapUiStdPage">
+		<content>		
+			<List id="InboxMasterList" modeAnimationOn="false" includeItemInSelection="false" 
+				mode="{= ${device>/system/phone} === true ? 'None' : 'SingleSelectMaster' }"
+				selectionChange="onInboxMasterSelectionChange"
+				items="{office>/messages}">
+				<items>
+					<CustomListItem id="InboxMasterItem" press="onInboxMasterItemPress"
+						type="{= ${device>/system/phone} === true ? 'Active' : 'Inactive' }"
+						data:RecId="{office>id}" class="xftMailItem">
+						<VBox width="100%">
+							<HBox width="100%" height="1.7rem" class="xftMailItemHeader">
+								<Label text="{office>from/emailAddress/name}" textAlign="Begin" 
+									design="{= ${office>isRead} === false ? 'Bold' : 'Standard' }"
+									class="xftMailItemFromNameLbl" />
+								<Label design="Standard" textAlign="End" class="xftMailItemDateLbl"
+									text="{
+										path: 'office>receivedDateTime',
+										formatter: '.formatter.masterDate'
+									}" />
+							</HBox>
+							<Label text="{office>subject}" width="100%" class="xftMailItemSubjectLbl"
+								design="{= ${office>isRead} === false ? 'Bold' : 'Standard' }" />
+							<Label text="{office>bodyPreview}" width="100%" />
+						</VBox>
+					</CustomListItem>
+				</items>
+			</List>
+		</content>
+	</Page>
+</mvc:View>

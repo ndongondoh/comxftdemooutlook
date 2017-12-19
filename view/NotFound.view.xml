@@ -1,0 +1,11 @@
+<mvc:View controllerName="com.xft.demo.outlook.controller.NotFound"
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
+	<MessagePage
+		title="{i18n>pages.notFound.title}"
+		text="{i18n>pages.notFound.text}"
+		icon="sap-icon://document"
+		description="{i18n>pages.notFound.description}"
+		showNavButton="true"
+		navButtonPress="onNavBack">
+	</MessagePage>
+</mvc:View>

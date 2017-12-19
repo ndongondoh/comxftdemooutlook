@@ -1,0 +1,19 @@
+<mvc:View controllerName="com.xft.demo.outlook.controller.calendar.Calendar" 
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core"
+	xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<!-- Page id="CalendarPage" showNavButton="true" class="sapUiStdPage" title="Calendar"
+		navButtonPress="onNavBack">
+		<content>
+			<Title text="My calendar" />
+		</content>
+	</Page-->
+	<MessagePage
+		title=""
+		text="Calendar"
+		icon="sap-icon://calendar"
+		description="Coming soon"
+		showNavButton="true"
+		navButtonPress="onNavBack">
+	</MessagePage>
+</mvc:View>

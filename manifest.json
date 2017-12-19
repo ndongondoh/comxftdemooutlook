@@ -1,0 +1,204 @@
+{
+	"_version": "1.7.0",
+	"start_url": "index.html",
+	"sap.app": {
+		"_version": "1.2.0",
+		"id": "com.xft.demo.outlook",
+		"type": "application",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"tags": {
+			"keywords": [
+				"{{appTitle}}"
+			]
+		},
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		}
+	},
+	"sap.ui": {
+		"_version": "1.2.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_bluecrystal"
+		]
+	},
+	"sap.ui5": {
+		"_version": "1.2.0",
+		"rootView": {
+			"viewName": "com.xft.demo.outlook.view.App",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {},
+				"sap.ushell": {},
+				"sap.collaboration": {},
+				"sap.ui.comp": {},
+				"sap.uxap": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties",
+				"settings": {
+					"bundleName": "com.xft.demo.outlook.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			],
+			"js": [
+				{
+					"uri": "msgraph/graph-js-sdk-web.js"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "com.xft.demo.outlook.view",
+				"controlId": "App",
+				"controlAggregation": "pages",
+				"transition": "slide",
+				"bypassed": {
+					"target": "home"
+				}
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "home",
+					"target": "home"
+				},
+				{
+					"pattern": "calendar",
+					"name": "calendar",
+					"target": "calendar"
+				},
+				{
+					"pattern": "",
+					"name": "inboxSplit",
+					"target": "inboxSplit",
+					"subroutes": [
+						{
+							"pattern": "inbox",
+							"name": "inboxMaster",
+							"target": "inboxMaster",
+							"subroutes": [
+								{
+									"pattern": "inbox/home",
+									"name": "inboxHome",
+									"target": "inboxHome"
+								},
+								{
+									"pattern": "inbox/{mailId}",
+									"name": "inboxDetail",
+									"target": "inboxDetail"
+								},
+								{
+									"pattern": "nodata/{detailId}",
+									"name": "noData",
+									"target": "noData"
+								}
+							]
+						}
+					]
+				}
+			],
+			"targets": {
+				"home": {
+					"viewName": "Home",
+					"viewLevel": 1
+				},
+				"calendar": {
+					"viewName": "Calendar",
+					"viewPath": "com.xft.demo.outlook.view.calendar",
+					"viewLevel": 2
+				},
+				"inboxSplit": {
+					"viewName": "inbox.InboxSplitApp",
+					"viewLevel": 2
+				},
+				"inboxMaster": {
+					"parent": "inboxSplit",
+					"viewPath": "com.xft.demo.outlook.view.inbox",
+					"viewName": "InboxMaster",
+					"viewLevel": 2,
+					"controlId": "InboxSplitApp",
+					"controlAggregation": "masterPages"
+				},
+				"inboxHome": {
+					"parent": "inboxSplit",
+					"viewPath": "com.xft.demo.outlook.view.inbox",
+					"viewName": "InboxHome",
+					"viewLevel": 2,
+					"controlId": "InboxSplitApp",
+					"controlAggregation": "detailPages"
+				},
+				"inboxDetail": {
+					"parent": "inboxSplit",
+					"viewPath": "com.xft.demo.outlook.view.inbox",
+					"viewName": "InboxDetail",
+					"viewLevel": 3,
+					"controlId": "InboxSplitApp",
+					"controlAggregation": "detailPages"
+				},
+				"noData": {
+					"viewName": "NoData",
+					"viewLevel": 3,
+					"transition": "show",
+					"controlAggregation": "detailPages"
+				},
+				"notFound": {
+					"viewName": "NotFound",
+					"viewLevel": 3,
+					"transition": "show"
+				}
+			}
+		}
+	},
+	"xft.app": {
+		"office": {
+			"appId": "bb3b5a62-350c-44f3-886b-7d1a74136109",
+			"authEndpoint": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize?",
+			"scopes": "openid profile User.Read Mail.ReadWrite Mail.Send"
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "",
+		"_version": "1.1.0"
+	}
+}

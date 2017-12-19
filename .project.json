@@ -1,0 +1,103 @@
+{
+  "beautifier": {
+    "keep_array_indentation": false,
+    "break_chained_methods": false,
+    "space_before_conditional": true,
+    "unescape_strings": false,
+    "tab_size": "4",
+    "max_preserve_newlines": "2",
+    "wrap_line_length": "140",
+    "brace_style": "collapse"
+  },
+  "basevalidator": {
+    "validators": [
+      {
+        "validatorID": "jsValidator",
+        "configuration": {
+          "eslintConfig": {
+            "rules": {
+              "camelcase": 0,
+              "curly": [
+                0,
+                "all"
+              ],
+              "eqeqeq": 0,
+              "no-fallthrough": 0,
+              "no-labels": 0,
+              "no-undef-init": 0,
+              "quotes": [
+                0,
+                "double"
+              ],
+              "comma-dangle": [
+                2,
+                "never"
+              ]
+            }
+          },
+          "rulesExt": {
+            "new-parens": {
+              "severity": "info",
+              "category": "Stylistic Issue",
+              "helpUrl": "http://eslint.org/docs/rules/new-parens"
+            },
+            "no-caller": {
+              "severity": "warning",
+              "category": "Best Practice",
+              "helpUrl": "http://eslint.org/docs/rules/no-caller"
+            },
+            "no-delete-var": {
+              "severity": "error",
+              "category": "Variable",
+              "helpUrl": "http://eslint.org/docs/rules/no-delete-var"
+            },
+            "no-empty": {
+              "severity": "info",
+              "category": "Best Practice",
+              "helpUrl": "http://eslint.org/docs/rules/no-empty"
+            },
+            "no-empty-class": {
+              "severity": "error",
+              "category": "Possible Error",
+              "helpUrl": "http://eslint.org/docs/rules/no-empty-class"
+            },
+            "no-empty-label": {
+              "severity": "error",
+              "category": "Best Practice",
+              "helpUrl": "http://eslint.org/docs/rules/no-empty-label"
+            },
+            "no-extra-semi": {
+              "severity": "warning",
+              "category": "Best Practice",
+              "helpUrl": "http://eslint.org/docs/rules/no-extra-semi"
+            },
+            "no-redeclare": {
+              "severity": "error",
+              "category": "Best Practice",
+              "helpUrl": "http://eslint.org/docs/rules/no-redeclare"
+            },
+            "no-shadow-restricted-names": {
+              "severity": "error",
+              "category": "Variable",
+              "helpUrl": "http://eslint.org/docs/rules/no-shadow-restricted-names"
+            },
+            "comma-dangle": {
+              "severity": "warning",
+              "category": "Possible Error",
+              "helpUrl": "http://eslint.org/docs/rules/comma-dangle"
+            }
+          }
+        },
+        "customRulesPath": ""
+      }
+    ],
+    "services": {
+      "js": "jsValidator"
+    }
+  },
+  "hcpdeploy": {
+    "account": "ab6cbd989",
+    "name": "comxftdemooutlook",
+    "lastVersionWeTriedToDeploy": "1.0.2"
+  }
+}

@@ -1,0 +1,58 @@
+<mvc:View controllerName="com.xft.demo.outlook.controller.inbox.InboxDetail" 
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:uxap="sap.uxap"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Page id="inboxDetailPage" showNavButton="{device>/system/phone}" 
+		showHeader="true" showSubHeader="false" enableScrolling="true" showFooter="true"
+		navButtonPress="onInboxDetailNavBack" class="sapUiStdPage" title="">
+		<content>
+			<uxap:ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="true"
+				upperCaseAnchorBar="false" showHeaderContent="true"
+				showTitleInHeaderContent="false" useIconTabBar="true">
+				<uxap:headerTitle>
+					<uxap:ObjectPageHeader isObjectSubtitleAlwaysVisible="false" 
+						isObjectTitleAlwaysVisible="true" isObjectIconAlwaysVisible="false" 
+						objectImageURI="" objectSubtitle="" objectImageShape="Square" 
+						objectTitle="{office>subject}" headerDesign="Light"
+						class="xftEmaiObjectPageHeader" />
+				</uxap:headerTitle>
+				<uxap:headerContent>
+					<l:VerticalLayout width="100%">
+						<Label text="{
+							path: 'office>receivedDateTime',
+							formatter: '.formatter.detailDateTime'
+						}" />
+						<ObjectStatus title="{i18n>label.mail.from}" text="{office>from/emailAddress/name}" />
+						<ObjectStatus title="{i18n>label.mail.to}" text="{office>toRecipients/0/emailAddress/name}" />
+					</l:VerticalLayout>
+				</uxap:headerContent>
+				<uxap:sections>
+					<uxap:ObjectPageSection title="" id="STAGES">
+						<uxap:subSections>
+							<uxap:ObjectPageSubSection title="">
+								<uxap:blocks>
+									<core:HTML id="MailHtmlBody" 
+										visible="{= String(${office>body/contentType}).toLowerCase() === 'html' }" 
+										content="{office>body/content}" />
+									<Text width="100%" id="MailTextBody" 
+										visible="{= String(${office>body/contentType}).toLowerCase() !== 'html' }" 
+										text="{office>body/content}" />
+								</uxap:blocks>
+							</uxap:ObjectPageSubSection>
+						</uxap:subSections>
+					</uxap:ObjectPageSection>
+				</uxap:sections>
+			</uxap:ObjectPageLayout>
+		</content>
+		<!--footer>
+			<Toolbar id="TB_FOOTER_DISP_REF_MAIN" width="100%">
+				<Button id="BTN_SUBMIT" type="Accept" text="{i18n>Submit}" width="100px" press="onSubmit" />
+				<ToolbarSpacer id="TB_FOOTER_DISP_REF_MAIN_SPACER_01" />
+				<Button id="BTN_SAVE" type="Emphasized" text="{i18n>Save}" width="100px" press="onSave" />
+				<Button id="BTN_CANCEL" type="Default" text="{i18n>Cancel}" width="100px" press="onCancel" />
+			<content />
+			</Toolbar>
+		</footer-->
+	</Page>
+</mvc:View>
